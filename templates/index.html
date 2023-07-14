@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+    <h3>Please select .csv file</h3>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="csvFileInput" accept=".csv">
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="form-container">
+        <form id="columnDisplayForm">
+          <label for="columnSelectDisplay"><b>Select Columns to Display:</b></label>
+          <br>
+          <!-- Checkbox options dynamically added -->
+          <div id="checkboxContainer" class="checkbox-container"></div>
+          <button type="button" onclick="applyColumnDisplay()">Apply Column Display</button>
+        </form>
+      </div>
+
+    <div class="filter-container">
+      <select id="columnSelectFilter" class="select-filter">
+        <option value="">Select Column</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search" class="search-input">
+      <button onclick="applyFilter()" class="filter-button">Apply Filter</button>
+    </div>
+
+    <div class="sort-container">
+      <select id="columnSelectSort" class="select-sort">
+        <option value="">Select Column</option>
+      </select>
+      <select id="sortOrderSelect" class="select-sort-order">
+        <option value="">Select Sorting Option</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <button onclick="applySorting()" class="sort-button">Apply Sorting</button>
+      <button onclick="resetData()" class="reset-button">Reset Data</button>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="table-container">
+      <table id="dataTable">
+        <!-- Table content -->
+      </table>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Your JavaScript code here
+      let selectedColumn = '';
+      let selectedSortOrder = '';
+      let originalData = [];
+      let displayColumns = [];
+
+      // Rest of your code...
+    });
+  </script>
+</body>
+</html>
